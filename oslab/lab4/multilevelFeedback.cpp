@@ -1,25 +1,23 @@
-#include <iostream>
-#include <queue>
-#include <vector>
-#include <algorithm>
+// 1) Write a program in C or C++ to implement the multilevel feedback queue cpu scheduling algo.find the avg tat,wt.
+#include<bits/stdc++.h>
 using namespace std;
 
 vector<pair<int, int>> gantt_chart;
 int currentTime = 0;
-int idx = 0;
 float totalTAT = 0, totalWT = 0;
-int newProcessCount = 1;
 
 struct Process
 {
     int id, at, bt, remaning_bt, ct = 0, tat = 0, wt = 0, preemptions = 0;
 };
 
+//compare on at
 bool comp(const Process &p1, const Process &p2)
 {
     return p1.at < p2.at;
 }
 
+//compare on id 
 bool compid(const Process &p1, const Process &p2)
 {
     return p1.id < p2.id;
